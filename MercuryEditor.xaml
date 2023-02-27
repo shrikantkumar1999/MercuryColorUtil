@@ -1,0 +1,96 @@
+﻿<Window x:Class="MercuryColorUtil.MercuryEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon"
+        xmlns:local="clr-namespace:MercuryColorUtil"
+        mc:Ignorable="d"
+        Title="MercuryEditor" Height="1350" Width="1525" WindowState="Maximized" Loaded="Window_Loaded">
+ 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.4*"></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
+            <RowDefinition Height="2.9*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="1.6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="Images\vulcan.jpg" Stretch="Fill"   VerticalAlignment="Top"></Image>
+            <TextBlock Text="VULCAN ADVANCE INTELLIGENCE COMPUTING PVT. LTD."   Grid.Column="1" FontSize="40" Foreground="Red" FontWeight="Bold" FontFamily="Dots All For Now JL" Margin="10"/>
+        </Grid>
+        
+        <Border Grid.Row="2"  >
+            <Grid HorizontalAlignment="Center">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                
+
+                <TextBlock Name="lblIPAddress" Foreground="Red" Text="Enter IP Address  "   Grid.Row="0"  Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"  ></TextBlock>
+
+                <TextBox Name="txtIPAddress" Text="122.160.111.167"  Grid.Row="0" Width="150" Height="25"  Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#247BA0" BorderBrush="#247BA0"  ></TextBox>
+                <TextBlock  Text="Enter Octopus IP  " Foreground="Red"  Grid.Row="0"  Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Tag="Enter IP Address"  ></TextBlock>
+
+                <TextBox Name="txtFDIPAddress" Text="172.16.3.179"  Grid.Row="0" Grid.Column="3" Width="150" Height="25"  FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#247BA0" BorderBrush="#247BA0"  ></TextBox>
+
+                <TextBlock  Text="Select Timer " Foreground="Red"  Grid.Row="0"  Grid.Column="4" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"  ></TextBlock>
+
+                <TextBox Name="txtsetTime"  Tag="Please enter Time 10-1000000!" Text="10"  Grid.Row="0" Width="150" Height="25"  Grid.Column="5" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#247BA0" BorderBrush="#247BA0"  ></TextBox>
+
+                <TextBlock  Text="Select Test Pattern " Foreground="Red"  Grid.Row="1"  Grid.Column="0" FontSize="16" VerticalAlignment="Center"   ></TextBlock>
+
+                <ComboBox Grid.Row="1"  Name="dpPattern" Width="150" Height="25"  SelectionChanged="dpPattern_SelectionChanged"  Grid.Column="1"  VerticalAlignment="Center"  HorizontalAlignment="Left">
+                    <ComboBoxItem FontFamily="Times xNew Roman">--Select--</ComboBoxItem>
+                    <ComboBoxItem FontFamily="Times New Roman">1</ComboBoxItem>
+                    <ComboBoxItem FontFamily="Times New Roman">2</ComboBoxItem>
+                    <ComboBoxItem FontFamily="Times New Roman">3</ComboBoxItem>
+                </ComboBox>
+                <TextBlock  Text="Select Brightness " Foreground="Red"  Grid.Row="1"  Grid.Column="2" FontSize="16" VerticalAlignment="Center"   ></TextBlock>
+
+                <ComboBox Name="cmbbrightness" SelectionChanged="cmbbrightness_SelectionChanged" Grid.Row="1"  Grid.Column="3" Height="25" VerticalAlignment="Center"  HorizontalAlignment="Left">
+                </ComboBox>
+
+                <Button Grid.Row="1" Grid.Column="5" FontSize="16"  Content="Get Parameters"  Width="130" VerticalAlignment="Center" HorizontalAlignment="Left" Height="25" Click="Button_Click_1"  />
+                <Button Grid.Row="1" Grid.Column="6" FontSize="16"  Content="Set IP"  Width="130" VerticalAlignment="Center" HorizontalAlignment="Left" Height="25" Click="btnSetIP_Click"  />
+
+
+
+            </Grid>
+        </Border>
+   
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BtnSave" Width="250" Height="40"  Content="Send Images" Click="btnSubmit_Click" VerticalAlignment="Center"  />
+            <Button x:Name="BtnVideo" Width="250" Height="40" Grid.Column="1"  Content="Send Videos" Click="btnVideo_Click"  />
+            <Button x:Name="BtnText" Width="250" Height="40" Grid.Column="2"  Content="Send Text" Click="BtnText_Click"  />
+            <Button x:Name="BtnFaultDiag" Width="250" Height="40" Grid.Column="3"  Content="Fault Diagnosis" Click="btnfault_Click"  />
+        </Grid>
+      
+    </Grid>
+</Window>
